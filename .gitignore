@@ -1,6 +1,8 @@
 # OSX
 #
 .DS_Store
+android
+ios
 
 # Xcode
 #
@@ -39,6 +41,7 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+
 
 # fastlane
 #
