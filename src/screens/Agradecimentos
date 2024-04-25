@@ -1,0 +1,58 @@
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+
+const Coleta = ({ navigation }) => {
+  const handleImageClick = () => {
+    navigation.navigate('Agradecimentos');
+  };
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={handleImageClick}>
+        <Image
+          source={require('./caminho/para/sua/imagem.png')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const Agradecimentos = ({ navigation }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate('Coleta');
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.message}>
+        Obrigado por participar da pesquisa!
+      </Text>
+      <Text style={styles.message}>
+        Aguardamos você no próximo ano!
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: 200,
+    height: 200,
+  },
+  message: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+});
+
+export { Coleta, Agradecimentos };
